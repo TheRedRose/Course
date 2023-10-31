@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib as plt
 import numpy as np
 
 # Sample course data with Udemy URLs
