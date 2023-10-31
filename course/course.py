@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 import numpy as np
 
 # Sample course data with Udemy URLs
@@ -126,7 +127,7 @@ for course_name in filtered_courses['Course Name']:
     st.write(f"Growth for {course_name} (Placeholder Data):")
     years = np.arange(1, 11)
     growth_data = np.random.randint(100, 500, size=10)  # Replace with your actual growth data
-    fig, ax = plt.subplots()
+    fig, ax = px.subplots()
     ax.plot(years, growth_data, marker='o', linestyle='-', color='b')
     ax.set_xlabel('Years')
     ax.set_ylabel('Growth')
