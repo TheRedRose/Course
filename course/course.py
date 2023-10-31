@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib as plt
+import plotly.express as px
 import numpy as np
 
 # Sample course data with Udemy URLs
@@ -119,18 +119,15 @@ for idx, course_name in enumerate(filtered_courses['Course Name']):
 
 # Adding a bar chart for course ratings
 st.subheader("Course Ratings")
-st.bar_chart(filtered_courses.set_index('Course Name')['Rating'])
+fig = px.bar(filtered_courses, x='Course Name', y='Rating', title="Course Ratings")
+st.plotly_chart(fig)
 
-# Placeholder for growth graphs (replace with actual data)
 st.subheader("Course Growth Over 10 Years (Placeholder Data):")
 for course_name in filtered_courses['Course Name']:
     st.write(f"Growth for {course_name} (Placeholder Data):")
-    years = np.arange(1, 11)
-    growth_data = np.random.randint(100, 500, size=10)  # Replace with your actual growth data
-    fig, ax = plt.subplots()
-    ax.plot(years, growth_data, marker='o', linestyle='-', color='b')
-    ax.set_xlabel('Years')
-    ax.set_ylabel('Growth')
-    st.pyplot(fig)
+    years = list(range(1, 11))
+    growth_data = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]  # Replace with your actual growth data
+    fig = px.line(x=years, y=growth_data, labels={'x': 'Years', 'y': 'Growth'}, title=f"Growth for {course_name}")
+    st.plotly_chart(fig)
 
 # streamlit run course.py
