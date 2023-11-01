@@ -123,10 +123,11 @@ fig = px.bar(filtered_courses, x='Course Name', y='Rating', title="Course Rating
 st.plotly_chart(fig)
 
 st.subheader("Course Growth Over 10 Years (Placeholder Data):")
-for course_name in filtered_courses['Course Name']:
+for idx, course_name in enumerate(filtered_courses['Course Name']):
     st.write(f"Growth for {course_name} (Placeholder Data):")
     years = list(range(1, 11))
-    growth_data = [101, 205, 310, 400, 500, 600, 700, 800, 900, 1000]  # Replace with your actual growth data
+    # Generate random growth data for each course
+    growth_data = [random.randint(100, 1000) for _ in range(10)]
     fig = px.line(x=years, y=growth_data, labels={'x': 'Years', 'y': 'Growth'}, title=f"Growth for {course_name}")
     st.plotly_chart(fig)
 
