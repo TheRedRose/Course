@@ -1,7 +1,7 @@
 import random
 import streamlit as st
 import pandas as pd
-
+import plotly as px
 import numpy as np
 
 # Sample course data with Udemy URLs
