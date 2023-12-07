@@ -1,6 +1,6 @@
 import random
 import streamlit as st
-import plotly.express as px
+import plotly.figure_factory as px
 import pandas as pd
 import numpy as np
 
