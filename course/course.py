@@ -129,7 +129,7 @@ for idx, course_name in enumerate(filtered_courses['Course Name']):
     years = list(range(1, 11))
     # Generate random growth data for each course
     growth_data = [random.randint(100, 1000) for _ in range(10)]
-    fig = px.line(x=years, y=growth_data, labels={'x': 'Years', 'y': 'Growth'}, title=f"Growth for {course_name}")
+    fig = px.line(df,x=years, y=growth_data, labels={'x': 'Years', 'y': 'Growth'}, title=f"Growth for {course_name}")
     px.plotly_chart(fig)
 
 # streamlit run course.py
